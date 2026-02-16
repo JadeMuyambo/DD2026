@@ -43,6 +43,7 @@ let filePath = path.join(__dirname, "static", "images", "sample.jpg");
 res.sendFile(filePath); 
 });
 
+//HTTP METHODS GET POST PUT DELETE
 //GET
 app.get("/api/items",(req, res) => {
     res.send("this is a get response from /api/items");
