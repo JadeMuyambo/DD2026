@@ -6,7 +6,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-//https://www.npmjs.com/package/express-handlebars is a Handlebarsview engine for Express which provides a way to render dynamic HTML
+//https://www.npmjs.com/package/express-handlebars is a Handlebarsview engine for Express which provides a way to render dynamic HTML pages using Handlebars templates. It allows you to separate your HTML structure from your application logic, making it easier to manage and maintain your views. With express-handlebars, you can create reusable templates, partials, and layouts, which can help you build more complex and dynamic web applications efficiently.
 const hbs = require("express-handlebars");
 
 app.engine ("handlebars", hbs.engine());
@@ -17,7 +17,7 @@ const path = require("path");
 
 //serving static files
 // express.static is a built-in middleware function in Express. It serves static files and is based on server-static.
-//The function takes a root directory
+//The function takes a root directory from which to serve static assets. In this case, we are serving files from the "static" directory.
 app.use(express.static(path.join(__dirname, "static")));
 
 // data
@@ -25,7 +25,7 @@ const directory = require("./data/directory.json");
 console.log(directory);
 
 // generate routes
-app.get('/',(req, res) => {
+app.get("/",(req, res) => {
     // sendfile is used to send a file as a response
     let filePath = path.join(__dirname, "static", "homepage.html");
     res.sendFile(filePath);
@@ -58,23 +58,46 @@ app.post("/api/items",(req, res) => {
 });
 //PUT
 app.put("/api/items/:id",(req, res) => {
-    res.send("this is a put response from /api/items");
+    res.send(`this is a put response from /api/items`);
 });
 //DELETE
 app.delete("/api/items/:id",(req, res) => {
-    res.send("this is a delete response from /api/items");
+    res.send(`this is a delete response from /api/items`);
 });
 
 //Directory route
 app.get("/directory", (req, res) => {
-    res.render ("directory", {people:
-    directory });
+    res.render ("directory", { people: directory });
+});
+
+app.get("/person/add", (req, res) => {
+    console.log(req.params);
+    console.log(req.query);
+
+    directory.push({
+        id: parseInt(req.query.id),
+        first_name: req.query.first_name,
+        last_name: req.query.last_name,
+        email: req.query.email,
+        address: req.query.address,
+        city: req.query.city,
+        state: req.query.state,
+        zip: req.query.zip
+    });
+    console.log(directory);
+
+    res.send("add-person");
 });
 
 app.get("/directory/:id", (req, res) => {
-    //TODO: find the person ith the id in the directory  and pass it to the template
-    res.render ("directory", {people:
-    directory });
+    const id = req.params.id;
+    console.log(id);
+
+    let person = directory.find((p) => p.id == id);
+    //Find the person ith the id in the directory  and pass it to the template
+    res.render ("person", {
+        people: person, 
+        title: person.first_name + " " + person.last_name, });
 });
 
 // start the server
