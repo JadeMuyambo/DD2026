@@ -42,7 +42,7 @@ email: req.query.email,
 address: req.query.address,
 city: req.query.city,
 state: req.query.state,
-zip: req.query.zip,
+zip: req.query.zip
 });
 
 });
