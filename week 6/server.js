@@ -96,7 +96,7 @@ app.get("/directory/:id", (req, res) => {
     let person = directory.find((p) => p.id == id);
     //Find the person ith the id in the directory  and pass it to the template
     res.render ("person", {
-        people: person, 
+        person: person, 
         title: person.first_name + " " + person.last_name, });
 });
 
