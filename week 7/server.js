@@ -25,11 +25,24 @@ const destinationSchema = new mongoose.Schema({
   description: String,
   image: String
 });
+// Activities schema for things to do in each destination
+const activitySchema = new mongoose.Schema({
+    name: String,
+    description: String,
+    image: String,
+    cost: Number,
+    destination: {
+         type: mongoose.Schema.Types.ObjectId, 
+         ref: "destinations" 
+        },
+    });
 
 const Destination = mongoose.model("destinations", destinationSchema);
 
+const Activity = mongoose.model("activities", activitySchema);
+
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/travelsite');
+  await mongoose.connect("mongodb://127.0.0.1:27017/travelsite");
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 main().catch(err => console.log(err));
@@ -74,9 +87,32 @@ app.get("/destinations", async (req, res) => {
         destinations: destinations,
         title: "Destinations",
     });
-
+});
+// Get a specific destination by _id
+app.get("/destinations/:id", async (req, res) => {
+    const { id } = req.params;
+    const destination  = await Destination.findById(id).lean();
+    const activities = await Activity.find({ destination: id }).lean();
+    res.render("details", {
+        destination: destination,
+        title: destination.name,
+        activities: activities,
+    });
 });
 
+// activities routes
+app.post("/activities", async (req, res) => {
+    const { name, description, image, cost, destination } = req.body;
+    const newActivity = new Activity({
+        name,
+        description,
+        image,
+        cost,
+        destination,
+    });
+    await newActivity.save();
+    res.send("Activity added successfully");
+});
 
 // start the server
 app.listen(port, () => {
