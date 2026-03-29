@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "69bc1d766c87a0c132e5f0b6"
+  },
+  "slug": "home",
+  "name": "Welcome to Your Next Adventure",
+  "description": "Your journey begins here! Explore the world's most unforgettable destinations, uncover must-see attractions, and discover exciting local experiences. World Travel is your gateway to iconic cities, breathtaking views, and memorable adventures around the globe, where every destination invites you to explore something new.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bc1d916c87a0c132e5f0b8"
+  },
+  "slug": "about-us",
+  "name": "About us",
+  "description": "About our awsome travel site!",
+  "__v": 0
+}]

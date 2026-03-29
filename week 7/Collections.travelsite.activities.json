@@ -1,0 +1,273 @@
+[{
+  "_id": {
+    "$oid": "69bc9ff4e92d2fced910a617"
+  },
+  "name": "Surfing",
+  "description": "Surfing lessons in Sydney offer beginner to advanced coaching at iconic locations like Bondi, Manly, and Maroubra. Sessions usually last up to 2 hours, featuring land based safety training, board and wetsuit rental, and expert instruction on catching waves.",
+  "image": "/images/surf.jpg",
+  "cost": 90,
+  "destination": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bca235e92d2fced910a61c"
+  },
+  "name": "Sydney Opera House",
+  "description": "The Sydney Opera House is a multi-venue performing arts centre in Sydney, Australia. Located on the foreshore of Sydney Harbour, it is widely regarded as one of the world's most famous and distinctive buildings, and a masterpiece of 20th century architecture. With over 40 shows a week there's something for everyone at the Sydney Opera House.",
+  "image": "/images/operahouse.jpg",
+  "cost": 48.99,
+  "destination": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bca4f3e92d2fced910a61e"
+  },
+  "name": "Taronga Zoo Sydney",
+  "description": "The Taronga Zoo Sydney is a premier, non-profit zoo located on shores of Sydney Harbour, offering spectacular city skyline views. It is home to over 5000 animals from over 350 species and features native Australian wildlife, dail keeper talks, seal shows, and a sky cable car. It is a famous conservation site focused on education and wildlife protection.",
+  "image": "/images/sydzoo.jpg",
+  "cost": 55,
+  "destination": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bca881e92d2fced910a623"
+  },
+  "name": "Blue Mountains Tour",
+  "description": "The Blue Mountains, located west of Sydney, Australia, are a rugged region of dramatic sandstone cliffs, eucalyptus gorest, and deep  valleys. Famous for the Three Sisters rock formation, scenic waterfalls, and villages like Katoomba, it offers extensive bushwalking, bird watching, and stunning panoramic views from lookouts like Echo Points.",
+  "image": "/images/bluemountains.jpg",
+  "cost": 89.99,
+  "destination": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bcaa6ee92d2fced910a627"
+  },
+  "name": "Vivid Sydney",
+  "description": "Vivid Sydney is an annual 23 day festival of light, music, ideas, and food, transforming Sydney into a creative, illuminated playground. It features performances by local and international musicians and ideas exchange forum showcasing public talks and debates with leading creative thinkers.",
+  "image": "/images/vividsydney.jpg",
+  "cost": 40,
+  "destination": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bcad53e92d2fced910a62d"
+  },
+  "name": "Sydney Tower Eye Tour",
+  "description": "The Sydney Tower Eye is the city's tallest structure, offering 360 degree panoramic views from an indoor observation deck 250 meters above the Central Business District. The building includes high-powered binoculars, a 4D cinema, and the thrilling \"SKYWALK\" open-air platform, providing views of the harbor and Blue Mountains.",
+  "image": "/images/towereye.jpg",
+  "cost": 29.75,
+  "destination": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bcd2e9e92d2fced910a64f"
+  },
+  "name": "Boulders Beach Penguins",
+  "description": "Located near Simon's Town in Cape Town, South Africa, Boulders Beach is famous for its protected colony of endangered African penguins. Boulders Beach remains the only place in the world where one can get up close to African penguins through boardwalks  and swimming areas where penguins often swim, waddle, and lounge on the sand nearby.",
+  "image": "/images/penguins.jpg",
+  "cost": 13.99,
+  "destination": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bcd4e9e92d2fced910a653"
+  },
+  "name": "Signal Hill Paragliding",
+  "description": "Signal Hill Paragliding in Cape Town offers thrilling tandem flights launching 350 meters above sea level for panoramic views of Table Mountain, the Atlantic Ocean, and Sea Point. No experience is needed and flights usually last 7-25 minutes depending on wind conditions.",
+  "image": "/images/paragliding.jpg",
+  "cost": 120,
+  "destination": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bcdb72e92d2fced910a65b"
+  },
+  "name": "Table Mountain ",
+  "description": "Table Mountain is an iconic flat-topped mountain in Cape Town, South Africa. As one of the New 7 Wonders and a UNESCO World Heritage site, it stands 1085 meters above the city. It offers 360 degree views, rich biodiversity with over 2,200 plant pecies, and is accessible via rotating cableway or hiking.",
+  "image": "/images/tablemountain.jpg",
+  "cost": 24.95,
+  "destination": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bda1c6e92d2fced910a67c"
+  },
+  "name": "Robben Island ",
+  "description": "Robben island is a UNESCO World Heritage Site located off the coast of Cape Town, South Africa. It is famous for holding political prisoners during the apartheid era, including Nelon Mandela for 18 of his 27 years in prison. It served as a maximum-security prison, leper colony, and military base before becoming a museum symbolizing the triumph of democracy over oppression. ",
+  "image": "/images/robbenisland.jpg",
+  "cost": 75,
+  "destination": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bda399e92d2fced910a680"
+  },
+  "name": "Day Trip Safari",
+  "description": "A day trip to Aquilla Private Game Reserve, located about two hour from Cape Town, offers a 9 hour convenient Big Five Safari experience. The experience typically includes hotel transfers, a welcome drink, buffet breakfast and lunch and a 3 hour guided game drive in an open 4x4 to spot  lions, rhinos, elephants, buffalo, leopardsand giraffes.",
+  "image": "/images/safari.jpg",
+  "cost": 305,
+  "destination": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bda425e92d2fced910a686"
+  },
+  "name": "Sailing Catamaran",
+  "description": "Experience breathtaking views of Table Mountain and the Atlantic Seaboard on a 60-90 minute sailing catamaran cruise from Cape Town's V&A Waterfront. Enjoy spacious deck, trampoline, and onboard bar while whale watching, coastal sightseeing, and relaxing in the Table Bay.",
+  "image": "/images/catamaran.jpg",
+  "cost": 35,
+  "destination": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdae5be92d2fced910a69f"
+  },
+  "name": "Coloseum",
+  "description": "The Coloseum also known as the Flavian Amphitheatre is a massive stone, oval amphitheater in Rome, Italy, commmissioned around 70-72 AD by Emperor Vespasian and completed in 80 AD by Titus. As the largest ancient amphitheater, seating 50,000-80,000, it hosted gladiatorial combats, animal hunts, and public spectacles for centuries. It is a UNESCO World Heritage site.",
+  "image": "/images/coloseum.jpg",
+  "cost": 25,
+  "destination": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdb1bee92d2fced910a6a5"
+  },
+  "name": "Trevi Fountain",
+  "description": "The Trevi Fountain is a renowned 85-foot tall, 160-foot wide Baroque masterpiece in Rome, designed by Nicola Salvi and completed in 1762. It features Neptune on a chariot drawn by Tritons and is famous for its massive travertine stone structure and the tradition of throwing coins over the shoulder to ensure a return to Rome.",
+  "image": "/images/trevifountain.jpg",
+  "cost": 2.35,
+  "destination": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdb6ffe92d2fced910a6ad"
+  },
+  "name": "Vatican Museums",
+  "description": "Located in Vatican City, the Vatican Museums are one of the world's largest and most visited art complexes, founded by Pope Julius II in the 16th century. They house priceless masterpieces collected by the Catholic Church, including Renaissance art, classical sculptures, and the renowned Sistine Chapel painted by Michelangelo.",
+  "image": "/images/vatican.jpg",
+  "cost": 45,
+  "destination": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdc422e92d2fced910a6b1"
+  },
+  "name": "Cooking Class",
+  "description": "Immerse in Roman culture with hands-on cooking class, a top tourist experience featuring pasta, pizza, or gelato making led by local chefs, often in charming neighborhoods like Trastevere. Classes typically last 3 hours, blending cooking and dinning experience.",
+  "image": "/images/cookingclass.jpg",
+  "cost": 80,
+  "destination": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdd0fe3f19a013e5f29034"
+  },
+  "name": "Pantheon",
+  "description": "The Pantheon in Rome is a premier, best-preserved ancient monument, rebuilt by Emperor Hadrian around 125 AD as a temple to all gods. Its landmark feature is the world's largest unreinforced concrete dome with a central open oculus that illuminates the interior. It now operates as a Catholic church.",
+  "image": "/images/pantheon.jpg",
+  "cost": 5.5,
+  "destination": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdd2f43f19a013e5f29038"
+  },
+  "name": "Villa Borghese",
+  "description": "Villa Borghese is a sprawling 148 acre public park in central Rome, originally developed in 1606 by Cardinal Scipione Borghese. Combining landscaped gardens, fountains, and villas, it is the city's largest green space, offering a peaceful escape between the Spanish Steps and Pizza del Popolo. It is best known for housing the prestigious Galleria Borghese. Entry to the gardens and park is free but tickets are required for the museum.",
+  "image": "/images/borghese.jpg",
+  "cost": 18,
+  "destination": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c87608a0f2b7a08d735603"
+  },
+  "name": "ATV Tour",
+  "description": "Experience the thrill of riding an ATV in the great outdoors while discovering the beauty of Miami's natural surroundings.",
+  "image": "/images/atv.jpg",
+  "cost": 69.99,
+  "destination": {
+    "$oid": "69c87583a0f2b7a08d7355fd"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c87667a0f2b7a08d735615"
+  },
+  "name": "Zoo",
+  "description": "The best and largest zoo in Florida. It houses more than 2,000 wild animals representing 375 different species.",
+  "image": "/images/zoo.jpg",
+  "cost": 39.99,
+  "destination": {
+    "$oid": "69c87583a0f2b7a08d7355fd"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c876a6a0f2b7a08d735617"
+  },
+  "name": "Sunset Cruise",
+  "description": "Sail along the bayside for a 90-minute sightseeing experience of Miami's skyline, Star Island, and celebrity mansions at golden hour.",
+  "image": "/images/sunset.jpg",
+  "cost": 200,
+  "destination": {
+    "$oid": "69c87583a0f2b7a08d7355fd"
+  },
+  "__v": 0
+}]

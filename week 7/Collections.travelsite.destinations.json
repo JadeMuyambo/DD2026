@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "69bc9d60e92d2fced910a615"
+  },
+  "page": "sydney",
+  "name": "Sydney",
+  "description": "Sydney is a dynamic, coastal metropolis and the capital of New South Wales, Australia. The city offers iconic harbor views, world-famous beaches, and vibrant culture. It is globally recognized for its iconic landmarks like the Sydney Opera House and the Sydney Harbour Bridge. Sydney serves as the country's economic hub and a top tourist destination. ",
+  "image": "/images/sydney.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bcb54ae92d2fced910a637"
+  },
+  "page": "cape town",
+  "name": "Cape Town",
+  "description": "Cape Town is a port city on South Africa's southwest coast. Known as the country's \"Mother City\", it is a lively legiltive capital renowned for its stunning natural beauty, where dramatic mountains meet the Atlantic Ocean. As a top global tourist destination, it showcases iconic Table Mountain, diverse cultures, rich history, and the scenic Cape of Good Hope. ",
+  "image": "/images/capetown.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bdab5de92d2fced910a697"
+  },
+  "page": "rome",
+  "name": "Rome",
+  "description": "Rome also known as the \"Eternal City\" and capital of Italy, is a major center of history, art, and culture with over 2,700 years of continuous habitation. Built on seven hills, it was the heart of the Roman Kingdom, Republic, and Empire, later becoming the center of the catholic Church. It features key sites including the Colosseum, Trevi Fountain, and Vatican City.",
+  "image": "/images/rome.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c87583a0f2b7a08d7355fd"
+  },
+  "page": "miami",
+  "name": "Miami",
+  "description": "Miami is a beautiful, vibrant, coastal metropolis in southeastern Florida known as a major international hub for finance, tourism, and trade. Famously known for its sunny, tropical climate, it features world famous beaches, Art Deco architecture in South Beach, and a diverse, Latin-influenced culture.",
+  "image": "/images/miami.jpg",
+  "__v": 0
+}]
