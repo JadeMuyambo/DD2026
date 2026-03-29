@@ -7,12 +7,12 @@
     object-fit: cover;
 }
 .widescreen{
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 16 / 6;
     width: 100%;
     object-fit: cover;
 }
 .font-24 {
-    font-size: 24px;
+    font-size: 22px;
 }
 .font-32 {
     font-size: 32px;
@@ -40,4 +40,8 @@
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+
+.home-description {
+    font-size: 16px;
 }
