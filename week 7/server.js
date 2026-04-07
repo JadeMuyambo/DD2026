@@ -99,6 +99,12 @@ app.use(express.static(path.join(__dirname, "static")));
 // Parse the body of incoming requests with urlencoded payloads and is based on body-parser. This middleware is used to parse the body of incoming requests and make it available under the req.body property. The extended: true option allows for rich objects and arrays to be encoded into the URL-encoded format, which can be useful for complex data structures.
 app.use(express.urlencoded({extended: true}));
 // data
+// Set up basic CORS headers fo communicating with APIs
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 // generate routes
 app.get("/", async (req, res) => {
@@ -205,6 +211,13 @@ app.post("/images", async (req, res) => {
     await newImage.save();
     res.send("Image added successfully");
 });
+
+// setup basic api routes
+app.get("/api/destinations", async (req, res) => {
+    const destinations = await Destination.find().lean();
+    res.json(destinations);
+});
+
 
 // start the server
 app.listen(port, () => {
