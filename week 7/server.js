@@ -4,7 +4,8 @@
 //4. start the db with command: brew services start mongodb - community // mac https://www.mongodb.com/docs/manual/administration/install-community/?operating-system=macos&macos-installation-method=homebrew
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 3001;
+// change the port to 3001 to avoid conflicts with the React development server which runs on port 3000 by default
 
 //https://www.npmjs.com/package/express-handlebars is a Handlebarsview engine for Express which provides a way to render dynamic HTML pages using Handlebars templates. It allows you to separate your HTML structure from your application logic, making it easier to manage and maintain your views. With express-handlebars, you can create reusable templates, partials, and layouts, which can help you build more complex and dynamic web applications efficiently.
 const hbs = require("express-handlebars");
@@ -99,10 +100,11 @@ app.use(express.static(path.join(__dirname, "static")));
 // Parse the body of incoming requests with urlencoded payloads and is based on body-parser. This middleware is used to parse the body of incoming requests and make it available under the req.body property. The extended: true option allows for rich objects and arrays to be encoded into the URL-encoded format, which can be useful for complex data structures.
 app.use(express.urlencoded({extended: true}));
 // data
-// Set up basic CORS headers fo communicating with APIs
+// Set up basic CORS headers fo communicating with APIs and accept POST, GET, PUT, DELETE, OPTIONS requests. This is important for allowing cross-origin requests from the frontend to the backend. In a production environment, you should configure CORS more securely by specifying allowed origins and methods.
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", "*"); // Allow requests from any origin. This should not be used in production without proper security measures in place.
+    res.header("Access-Control-Allow-Headers", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Methods", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
