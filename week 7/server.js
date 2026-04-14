@@ -127,7 +127,7 @@ app.get("/", async (req, res) => {
 
 
 // generate route to populate destinations page
-app.post ("/destinations", async (req, res) => {
+app.post ("/api/destinations", async (req, res) => {
     //code to add a new destination to the database
     const { page, name, description, image} = req.body;
     console.log(req.body);
