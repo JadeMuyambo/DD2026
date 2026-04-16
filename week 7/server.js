@@ -15,6 +15,18 @@ app.set("view engine", "handlebars");
 //app.set("views", path.join(__dirname, "views"));
 //the path module is used to work with file and directory paths
 const path = require("path");
+// set up uploads directory storing uploaded images
+const multer  = require('multer')
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '.static/images/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + "-" + file.originalname)
+},
+});
+
+const upload = multer(storage)
 
 //setup db connection
 const mongoose = require("mongoose");
@@ -127,15 +139,16 @@ app.get("/", async (req, res) => {
 
 
 // generate route to populate destinations page
-app.post ("/api/destinations", async (req, res) => {
+app.post("/api/destinations", upload.single('image'), async (req, res) => {
     //code to add a new destination to the database
-    const { page, name, description, image} = req.body;
-    console.log(req.body);
+    const { page, name, description } = req.body;
+    const image = req.file ? // Get the path of the uploaded image
+    console.log(req.body): null;
     const newDestination = new Destination({
         page,
         name,
         description,
-        image,
+        image: image.filename ? `images/${image.filename}` : "/images/default.jpg", // Store the image path in the database
     });
     await newDestination.save();
     //res.redirect("/destinations");
