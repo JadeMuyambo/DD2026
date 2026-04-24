@@ -1,11 +1,28 @@
 "use client";
-import { useState }  from "react";
-import { useRouter } from "next/navigation";
+import {useState, useEffect} from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 // form fields : name, page, description, image
+export default function UpdateDestinationPage() {
 
-export default function NewDestinationPage() {
+    const searchParams = useSearchParams();
     const router = useRouter();
+useEffect(() => { 
+    // Simulate fetching destinations from an API
+    const fetchDestination = async () => {
+      // Replace with actual API call
+      const response = await fetch("http://localhost:3001/api/destinations/"+router.get("id"));
+
+      const data = await response.json()
+
+      setFormData(data);
+
+      console.log(data)
+    };
+
+    fetchDestination();
+}, []);
+
     const [formData, setFormData] = useState({
         name: "",
         page: "",
@@ -49,32 +66,32 @@ export default function NewDestinationPage() {
 
         try {
             // fetch the data
-            const response = await fetch("http://localhost:3001/api/destinations", {
-                method: "POST",
+            const response = await fetch("http://localhost:3001/api/destinations/" + searchParams.get("id"), {
+                method: "PUT",
                 body: body
             });
             if (!response.ok) {
-                throw new Error("Failed to add destination");
+                throw new Error("Failed to update destination");
             } else {
               // everything worked..send the user back to destinations
-              // redirect("/destinations");
               router.push("/destinations");
             }
         } catch (err) {
             setError((err as Error).message);
         } finally {
             setLoading(false);
+            redirect("/destinations");
         }
-    };
+    }
 
   return (
         <div className="max-w-[600px] w-full">
-          <h1 className="text-3xl font-bold">Add New Destination</h1>
+          <h1 className="text-3xl font-bold">Edit Destination {searchParams.get("id")}</h1>
           <form className="mt-4" onSubmit={handleSubmit}>
 
             <div className="mb-4">
               <label className="block w-full font-bold mb-2" htmlFor="name">
-            Name:
+                    Name:
               </label>
               <input
             type="text"
@@ -88,7 +105,7 @@ export default function NewDestinationPage() {
 
             <div className="mb-4">
               <label className="block w-full font-bold mb-2" htmlFor="page">
-            Page:
+                    Page:
               </label>
               <input
             type="text"

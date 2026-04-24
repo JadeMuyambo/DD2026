@@ -16,17 +16,17 @@ app.set("view engine", "handlebars");
 //the path module is used to work with file and directory paths
 const path = require("path");
 // set up uploads directory storing uploaded images
-const multer  = require('multer')
+const multer  = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, '.static/images/')
+      cb(null, './static/images/');
     },
     filename: function (req, file, cb) {
-      cb(null, Date.now() + "-" + file.originalname)
+      cb(null, Date.now() + "-" + file.originalname);
 },
 });
 
-const upload = multer(storage)
+const upload = multer({storage});
 
 //setup db connection
 const mongoose = require("mongoose");
@@ -115,8 +115,8 @@ app.use(express.urlencoded({extended: true}));
 // Set up basic CORS headers fo communicating with APIs and accept POST, GET, PUT, DELETE, OPTIONS requests. This is important for allowing cross-origin requests from the frontend to the backend. In a production environment, you should configure CORS more securely by specifying allowed origins and methods.
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // Allow requests from any origin. This should not be used in production without proper security measures in place.
-    res.header("Access-Control-Allow-Headers", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Methods", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
@@ -142,17 +142,33 @@ app.get("/", async (req, res) => {
 app.post("/api/destinations", upload.single('image'), async (req, res) => {
     //code to add a new destination to the database
     const { page, name, description } = req.body;
-    const image = req.file ? // Get the path of the uploaded image
-    console.log(req.body): null;
+    const image = req.file; // Get the path of the uploaded image
+    console.log(req.body);
     const newDestination = new Destination({
         page,
         name,
         description,
-        image: image.filename ? `images/${image.filename}` : "/images/default.jpg", // Store the image path in the database
+        image: image ? `/images/${image.filename}` : "/images/default.jpg", // Store the image path in the database
     });
     await newDestination.save();
     //res.redirect("/destinations");
     res.send("Destination added successfully");
+});
+
+// update destination
+app.put("/api/destinations/:id", upload.single("image"), async (req, res) => {
+    console.clear();
+    const {id} = req.params;
+    const {page, name, description} = req.body;
+    const image = req.file;
+
+    await Destination.findByIdAndUpdate(id, {
+        page,
+        name,
+        description,
+        image: image ? `/images/${image.filename}` : this.image,
+    });
+    res.send("Destination updated successfully");
 });
 
 // generate routes to display destinations page
@@ -175,6 +191,12 @@ app.get("/destinations/:id", async (req, res) => {
         title: destination.name,
         activities: destination.activities,
     });
+});
+
+app.delete("/api/destinations/:id", async (req, res) => {
+    const {id} = req.params;
+    await Destination.findByIdAndDelete(id);
+    res.send("Destination deleted successfully");
 });
 
 // activities routes
@@ -232,7 +254,15 @@ app.get("/api/destinations", async (req, res) => {
     const destinations = await Destination.find().lean();
     res.json(destinations);
 });
-
+// Get a specific destination by _id
+app.get("api/destinations/:id", async (req, res) => {
+    const { id } = req.params;
+    const destination  = await Destination.findById(id)
+    .populate("activities")
+    .lean();
+    //const activities = await Activity.find({ destination: id }).lean();
+    res.json(destination);
+});
 
 // start the server
 app.listen(port, () => {

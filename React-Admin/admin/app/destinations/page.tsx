@@ -1,13 +1,15 @@
 "use client";
 import {useState, useEffect} from "react";
 
+
 interface Destination {
   _id: string;
   name: string;
+  image: string;
   description: string;
 }
 
-export default function DestinationPage() {
+export default function DestinationsPage() {
   const [destinations, setDestinations] = useState<Destination[]>([]);
   
   useEffect(() => { 
@@ -23,6 +25,24 @@ export default function DestinationPage() {
     fetchDestinations();
   }, []);
 
+  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const id = e.currentTarget.getAttribute("data-id");
+    if (!id) return;
+
+    try {
+      const response = await fetch(`http://localhost:3001/api/destinations/${id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error("Failed to delete destination");
+      } else {
+        //Remove the deleted destination from the state
+        setDestinations(destinations.filter(dest => dest._id !== id));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    };
 
   return (
     <div>
@@ -38,13 +58,16 @@ export default function DestinationPage() {
   <tbody>
     {destinations.map((destination) => (
       <tr key={destination._id}>
+        <td className="border border-gray-300 p-2">
+        <img src={`http://localhost:3001/${destination.image}`} alt={destination.name} className="w-550 h-70 object-cover" />
+        </td>
         <td className="border border-gray-300 p-2">{destination.name}</td>
         <td className="border border-gray-300 p-2">{destination.description}</td>
-        <td className="border border-gray-300 p-2">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <td className="border border-gray-300 p-2 [w-200px]">
+          <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href={`/destinations/edit/?id=${destination._id}`}>
             Edit
-          </button>
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">
+          </a>
+          <button data-id= {destination._id} onClick={handleDelete} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">
             Delete
           </button>
         </td>
